@@ -1,8 +1,7 @@
 from django.urls import path
-from .views import JSONDataView,json_data_view
-
+from .views import JSONDataView, message
 
 urlpatterns = [
-    path('json/', JSONDataView.as_view(), name='json_data_cbv'),  # class based View URL
-    path('json-fbv/', json_data_view, name='json_data_fbv'),      # function based View URL
+    path('json-cbv/', JSONDataView.as_view(), name='json_data_cbv'),  # URL for class-based View
+    path('message-fbv/', message, name='message-fbv'),  # URL for function-based View
 ]
