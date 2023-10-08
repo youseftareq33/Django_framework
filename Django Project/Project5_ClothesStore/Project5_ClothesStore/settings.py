@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=d*v^f77201@)r13qnxp7&8e(=qy)*y6s46nfw!2*x6dhm06%n'
+SECRET_KEY = 'django-insecure-+rg(_z%szboy1br^uh)(=mgl=g@*p%*s=ywfdejas-8i7_uoo*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'moda_market',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +77,12 @@ WSGI_APPLICATION = 'Project5_ClothesStore.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'dbClothes_Store',
+    'USER': 'postgres',
+    'PASSWORD': '1202057',
+    'HOST': 'localhost',
+    'PORT': '5432',
     }
 }
 
