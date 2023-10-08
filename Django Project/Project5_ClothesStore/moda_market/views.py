@@ -10,6 +10,7 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated
 from .validators import validate_password
 from django.core.exceptions import ValidationError
+from django.contrib.auth import authenticate
 
 
 
@@ -23,7 +24,7 @@ class UserRegistrationView(APIView):
         except ValidationError as e:
             return Response({'password': e.messages})
         
-        serializer = UserSerializer(data=request.data)
+        serializer = UserSerializer(data=data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
@@ -92,7 +93,7 @@ class ListBestSellerItemsView(ListAPIView):
 
 # Update Item
 class UpdateItemView(APIView):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated)
 
     def put(self, request, item_id):
         try:
@@ -116,7 +117,7 @@ class UpdateItemView(APIView):
 
 #-- Add Items
 class AddItemView(APIView):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated)
     
     def post(self, request):
         if request.user.user_type == 'worker':
