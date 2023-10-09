@@ -56,7 +56,7 @@ ROOT_URLCONF = 'Project3_RentVehicleSystem.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'vehicles/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,9 +66,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
         },
-
-        'DIRS': [os.path.join(BASE_DIR, 'vehicles/templates')],
-    },
+    }
 ]
 
 WSGI_APPLICATION = 'Project3_RentVehicleSystem.wsgi.application'
